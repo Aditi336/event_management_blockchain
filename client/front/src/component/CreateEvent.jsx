@@ -1,11 +1,13 @@
-import React,{ useState } from 'react'
+import React,{ useContext, useState } from 'react'
+import { AuthContext } from '../store/Auth'
 
 
-const Adding_new_provider = ({createNewEvent }) => {
+const CreateEvent = () => {
     const [eventName,seteventName]=useState("")
     const [eventDate,seteventDate]=useState("")
     const[ticketPrice,setticketPrice]=useState(0)
     const [totalTickets,settotalTickets]=useState(0)
+    const {createNewEvent}=useContext(AuthContext)
 
     return (
         <div className="login-container">
@@ -21,4 +23,4 @@ const Adding_new_provider = ({createNewEvent }) => {
     );
 }
 
-export default Adding_new_provider;
+export default CreateEvent;

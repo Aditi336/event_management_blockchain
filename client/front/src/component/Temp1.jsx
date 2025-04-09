@@ -2,15 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { BrowserProvider, ethers } from 'ethers';
 import { contractAddress, contractAbi } from '../constant/constant';
 import { AuthContext } from '../store/Auth';
-import { useNavigate } from 'react-router-dom';
 
-const DisplayEvents = () => {
+const Temp1 = () => {
     const {events}=useContext(AuthContext)
     // console.log(events)
-    const navigate = useNavigate();
-    const handleBuys = (eventId) => {
-      navigate('/buy_events_ticket', { state: { id: eventId } });
-    };
   
 
   return (
@@ -26,7 +21,6 @@ const DisplayEvents = () => {
             <th className="border p-2">Price (ETH)</th>
             <th className="border p-2">Tickets Remaining</th>
             <th className="border p-2">Total Tickets</th>
-            <th className="border p-2">Buy</th>
           </tr>
         </thead>
         <tbody>
@@ -40,7 +34,6 @@ const DisplayEvents = () => {
                 <td className="border p-2">{event.price}</td>
                 <td className="border p-2">{event.ticketRemaining}</td>
                 <td className="border p-2">{event.ticketCount}</td>
-                <td className='border p-1'><button onClick={()=>handleBuys(event.id)}>Buy</button></td>
               </tr>
             ))
           ) : (
@@ -56,4 +49,4 @@ const DisplayEvents = () => {
   );
 };
 
-export default DisplayEvents;
+export default Temp1;
