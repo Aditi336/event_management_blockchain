@@ -1,5 +1,6 @@
 import React,{ useState,useEffect, use, useContext } from 'react'
 import {AuthContext} from '../store/Auth'
+import './Add_new_provider.css';
 
 
 const Add_new_provider = () => {

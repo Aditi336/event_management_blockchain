@@ -1,12 +1,18 @@
 import React from "react";
-
+import './Connected.css';
+import { FaUserShield } from 'react-icons/fa';  // Owner icon
+import { FaEthereum } from 'react-icons/fa';    // Ethereum icon
 
 const Connected = (props) => {
     return (
-        <div className="login-container">
-            <h1 className="connected-header">you are connected to metamask</h1>
-            <p className="connected-account">Metamask Account:{props.account}</p>
-           <p className="connected-account">owner of contract :{props.isOwner}</p> 
+        <div className="connected-container">
+            <h1 className="connected-header">🦊 You are connected to MetaMask</h1>
+            <p className="connected-account">
+                <FaEthereum className="icon" /> <strong>Account:</strong> {props.account}
+            </p>
+            <p className="connected-account">
+                <FaUserShield className="icon" /> <strong>Owner of contract:</strong> {props.isOwner ? 'Yes 👑' : 'No'}
+            </p>
         </div>
     );
 }

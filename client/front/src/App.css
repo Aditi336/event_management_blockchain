@@ -36,3 +36,125 @@
     transform: rotate(360deg);
   }
 }
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #e6ecff);
+  min-height: 100vh;
+  color: #1e1e2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Glassy Card Style */
+.card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+/* Buttons */
+button {
+  padding: 0.8rem 1.6rem;
+  background: #4c82f7;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background: #3a6fe7;
+}
+
+/* Inputs */
+input, select, textarea {
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  border: 2px solid #d0d0f0;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.2s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #4c82f7;
+  background-color: #f5f9ff;
+}
+
+/* Header */
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2a2a40;
+}
+
+/* Navigation (if applicable) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #ffffffc9;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+/* For Layout/Wrapper */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Message box */
+.message {
+  background: #edf2ff;
+  padding: 1rem;
+  border: 1px solid #4c82f7;
+  border-radius: 10px;
+  margin-top: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}

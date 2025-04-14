@@ -1,6 +1,9 @@
 import React,{ useContext, useState } from 'react'
 import { AuthContext } from '../store/Auth'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
+import './BuyEventTickets.css';
+
+
 
 const BuyEventTickets = ({createNewEvent }) => {
     const [participantName,setparticipantName]=useState("")
@@ -16,15 +19,21 @@ const BuyEventTickets = ({createNewEvent }) => {
 
     return (
         <div className="login-container">
-            <h1>Buy tickets for event-{id}</h1>
-            Participant name: <input className='input-field' type= "text" placeholder='program name' value = {participantName} onChange={(e) => setparticipantName(e.target.value)}/><br></br>
-            Program date<input className='input-field' type= "text" placeholder='program date' value = {ID} onChange={(e) => setID(e.target.value)}/><br></br>
-            Total number of tickets<input className='input-field' type="number"  value = {totalTickets} onChange={(e) => settotalTickets(e.target.value)}/><br></br>
-            Ticket price<input className='input-field' type= "number" placeholder='ticket price' value = {totalTickets} onChange={(e) => setticketPrice(e.target.value)}/><br></br>
+  <h1>Buy Tickets for Event-{id}</h1>
 
+  <input className="input-field" type="text" placeholder="Participant Name" value={participantName} onChange={(e) => setparticipantName(e.target.value)} />
+  
+  <input className="input-field" type="text" placeholder="Program Date" value={ID} onChange={(e) => setID(e.target.value)} />
 
-            <button className='action-button' onClick={() => createNewEvent(participantName,ID,ticketPrice,totalTickets)}>Create</button>
-        </div>
+  <input className="input-field" type="number" placeholder="Total Number of Tickets" value={totalTickets} onChange={(e) => settotalTickets(e.target.value)} />
+  
+  <input className="input-field" type="number" placeholder="Ticket Price" value={ticketPrice} onChange={(e) => setticketPrice(e.target.value)} />
+
+  <button className="action-button" onClick={() => createNewEvent(participantName, ID, ticketPrice, totalTickets)}>
+    Create
+  </button>
+</div>
+
     );
 }
 
