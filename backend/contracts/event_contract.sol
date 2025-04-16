@@ -71,8 +71,6 @@ contract Event_ord{
         people[id].push(Buyers(msg.sender,name,quantity,msg.value,block.timestamp,id));
         _event.ticketRemaining-=quantity;
         
-        
-
     }
     
     function getAllEvents()public view returns(Event[] memory){

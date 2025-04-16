@@ -1,11 +1,14 @@
-import React, { useState, useEffect, createContext } from 'react';
-import { BrowserProvider, ethers } from 'ethers';
+import React, { useState, useEffect, createContext, use } from 'react';
+import { BrowserProvider, formatEther ,parseEther,ethers } from 'ethers';
 import { contractAddress, contractAbi } from '../constant/constant';
 export const AuthContext=createContext();
 const Auth=({children})=>{
     const [Provider,setProvider]=useState(null)
     const [Signer,setSigner]=useState(null)
     const [Contract,setContract]=useState(null)
+    const [Account,setAccount]=useState();
+    const [owner,setowner]=useState(null);
+
     const connectToMetaMask=async()=> {
         try {
           const provider = new BrowserProvider(window.ethereum);
@@ -13,9 +16,13 @@ const Auth=({children})=>{
           setProvider(provider)
           const signer = await provider.getSigner();
           setSigner(signer)
+          const address=await signer.getAddress();
+          setAccount(address);
           const contract = new ethers.Contract(contractAddress, contractAbi, signer);
           setContract(contract)
-          console.log(signer)
+          const ownerAddress = await contract.getOwner();
+          setowner(ownerAddress)
+          // console.log(signer)
         }catch(error){
             console.log(error)
         }
@@ -33,6 +40,7 @@ const Auth=({children})=>{
             }
 
         }
+
         // Creation of events
         const createNewEvent=async( eventName, eventDate, ticketPrice, totalTickets) =>{
           try {
@@ -111,15 +119,16 @@ const Auth=({children})=>{
       
               const eventCount = await contract.nextId(); // Assuming nextId is the count of events
               let eventList = [];
-      
+              
               for (let i = 0; i < eventCount; i++) {
                 const event = await contract.events(i);
+                console.log(event.price, formatEther((event.price ).toString()), Number(formatEther((event.price * 10n ** 18n).toString()))*2)
                 eventList.push({
                   id: i,
                   organizer: event.organizer,
                   name: event.name,
                   date: new Date(Number(event.date) * 1000).toLocaleDateString(),
-                  price: ethers.formatEther(event.price), // Convert from wei to ether
+                  price: event.price, // Convert from wei to ether
                   ticketRemaining: Number(event.ticketRemaining),
                   ticketCount: Number(event.ticketCounter),
                 });
@@ -134,10 +143,22 @@ const Auth=({children})=>{
             fetchEvents();
           }, []);
         // user buys ticket
-
+          const [attendees,setattendee]=useState([]);
+          const createBuyer=async(participantName,quantity,event_price,id )=>{
+            const tx = await Contract.buyTicket(
+              id,
+              quantity,
+              participantName,
+              { value: event_price }
+            )
+            await tx.wait();
+            alert("Tickets bought successfully");
+          }
          
         const constantValues={
             connectToMetaMask,
+            owner,
+            Account,
             abc,
             Provider,
             Signer,
@@ -145,6 +166,8 @@ const Auth=({children})=>{
             createNewEvent,
             fetchEvents,
             events,
+            createBuyer,
+            attendees
             // handleBuys
         }
         return(

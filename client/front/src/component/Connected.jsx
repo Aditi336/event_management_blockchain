@@ -11,7 +11,7 @@ const Connected = (props) => {
                 <FaEthereum className="icon" /> <strong>Account:</strong> {props.account}
             </p>
             <p className="connected-account">
-                <FaUserShield className="icon" /> <strong>Owner of contract:</strong> {props.isOwner ? 'Yes 👑' : 'No'}
+                <FaUserShield className="icon" /> <strong>Owner of contract:</strong> {props.isOwner==props.account ? 'Yes 👑' : 'No'}
             </p>
         </div>
     );

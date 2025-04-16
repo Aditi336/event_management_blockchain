@@ -90,7 +90,7 @@ function App() {
 
         // Compare addresses (case-insensitive)
         setIsOwner(ownerAddress);
-        console.log(isOwner)
+        console.log(ownerAddress,"this is owner")
       }catch(err){
         console.error(err);
       }
@@ -120,7 +120,7 @@ function App() {
       <Routes>
         <Route path="/" element={isConnected?(<Connected account={account} isOwner={isOwner}/>):(<Login connectWallet={connectToMetamask}/>)} />
         <Route path="/authorize-provider" element={<Adding_new_provider />} />
-        <Route path="/create_event" element={<CreateEvent />}></Route>
+        <Route path="/create_event" element={<CreateEvent/>}></Route>
         <Route path='/display_events' element={<DisplayEvents/>}></Route>
         <Route path='buy_events_ticket' element={<BuyEventTickets/>}></Route>
        <Route path='/temp_abc' element={<Temp1/>}/>
