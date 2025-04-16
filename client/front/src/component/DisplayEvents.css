@@ -3,19 +3,21 @@
 body {
   background-color: #f7f9fb;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111; /* Set default dark text color */
 }
 
 .events-container {
   padding: 2rem;
   max-width: 1200px;
   margin: auto;
+  color: #111; /* Ensure content text is dark */
 }
 
 .events-heading {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  color: #333;
+  color: #222; /* Slightly darker than default */
   text-align: center;
 }
 
@@ -39,6 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  color: #111; /* Ensure card text is dark */
 }
 
 .event-card:hover {
@@ -47,7 +50,7 @@ body {
 
 .organizer-text {
   word-break: break-word;
-  color: #555;
+  color: #444; /* Darker than before */
   font-size: 0.9rem;
 }
 
@@ -70,5 +73,5 @@ body {
 .no-events {
   text-align: center;
   font-size: 1.2rem;
-  color: #888;
+  color: #555; /* Slightly darker than before */
 }

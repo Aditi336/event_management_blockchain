@@ -80,3 +80,10 @@ label {
     opacity: 1;
   }
 }
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover, 
+.input-field:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #2a2a40 inset !important;
+  -webkit-text-fill-color: #f1f1f1 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
