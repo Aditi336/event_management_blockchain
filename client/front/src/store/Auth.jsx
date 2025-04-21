@@ -94,7 +94,8 @@ const Auth=({children})=>{
             } else if (error.message.includes("ticket can't have 0 tickets")) {
               console.error("Error: Event must have at least one ticket");
             } else if (error.message.includes("You are not authorized")) {
-              console.error("Error: You don't have permission to create events");
+              // console.error("Error: You don't have permission to create events");
+              alert("You don't have permission to create events");
             }
             
             return {

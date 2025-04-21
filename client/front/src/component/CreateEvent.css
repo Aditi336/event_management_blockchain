@@ -8,11 +8,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+#heading_createevent{
+  color: white;
+}
 
 .create-event-container {
   max-width: 500px;
   margin: 5em auto;
   background-color: #1e1e2f;
+  color: white;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);

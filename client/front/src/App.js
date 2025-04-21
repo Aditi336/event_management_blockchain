@@ -123,7 +123,7 @@ function App() {
         <Route path="/create_event" element={<CreateEvent/>}></Route>
         <Route path='/display_events' element={<DisplayEvents/>}></Route>
         <Route path='buy_events_ticket' element={<BuyEventTickets/>}></Route>
-       <Route path='/temp_abc' element={<Temp1/>}/>
+       {/* <Route path='/temp_abc' element={<Temp1/>}/> */}
       </Routes>
     </Router>
     </Auth>
