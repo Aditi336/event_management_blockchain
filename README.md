@@ -1,4 +1,4 @@
-# event_management_blockchain
+# Event Management Blockchain
 
 ##### Frontend
 /client/front: ```npm start```
